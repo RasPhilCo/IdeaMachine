@@ -5,10 +5,25 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui, width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 </head>
 <body>
+  <div id="container">
+    <%= render 'layouts/header' %>
+    <div id="content" class="">
+      <div class="indent-right">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>    
 
-<%= yield %>
-
+        <%= yield %>
+        <%= debug(params) if Rails.env.development? %>
+      </div>
+    </div><!-- /.content -->
+  </div> 
 </body>
 </html>
