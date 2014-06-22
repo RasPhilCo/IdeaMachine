@@ -1,0 +1,16 @@
+<section>
+  <h1>Welcome!</h1>
+
+  <div>
+    <%= form_for(:auth, url: signin_path) do |f| %>
+
+      <%= f.text_field :email_or_username, placeholder: "Email or Username" %>
+
+      <%= f.password_field :password, placeholder: "Password" %>
+
+      <%= f.submit "Sign in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p><%= link_to "New user?", signup_path %> </p> 
+  </div>
+</section>

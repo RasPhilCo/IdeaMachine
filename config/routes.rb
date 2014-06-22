@@ -1,5 +1,17 @@
 IdeaMachine::Application.routes.draw do
-  resources :users, only: [:new, :create, :show]
+  root "auths#new"
+
+  resources :users, only: [:show]
+
+  match '/signup', to: 'users#new', via: 'get'
+  match '/signup', to: 'users#create', :via => 'post'
+  match '/signin', to: 'auths#new', via: 'get'
+  match '/signin', to: 'auths#create', via: 'post'
+  match '/signout', to: 'auths#destroy', via: 'delete'
+
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

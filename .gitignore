@@ -25,6 +25,7 @@ doc/
 .idea
 .secret
 notes.txt
+dump.rdb
 
 # secret
 /config/initializers/secret_token.rb
