@@ -2,6 +2,7 @@ IdeaMachine::Application.routes.draw do
   root "auths#new"
 
   resources :users, only: [:show]
+  resources :ideas, only: [:create, :destroy, :edit, :update]
 
   match '/signup', to: 'users#new', via: 'get'
   match '/signup', to: 'users#create', :via => 'post'

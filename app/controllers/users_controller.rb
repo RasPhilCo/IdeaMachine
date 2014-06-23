@@ -21,6 +21,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @ideas = current_user.ideas
+    @idea  = Idea.new
   end
 
   private

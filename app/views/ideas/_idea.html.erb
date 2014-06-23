@@ -1,0 +1,16 @@
+<li class="table-view-cell">
+  <div><%= idea.content %></div>
+  <div class="pull-right">
+    <%= link_to edit_idea_path(idea) do %>
+      <span class="icon icon-edit" style="font-size:1.2em"></span>
+    <% end %>
+    <%= link_to idea, method: :delete,
+                               data: { confirm: "You sure? This is permanent."},
+                               class: "" do %>
+      <span class="icon icon-trash" style="font-size:1.2em"></span> 
+    <% end %>
+  </div>
+  <p>
+    Created <%= time_ago_in_words(idea.created_at) %> ago.                    
+  </p>
+</li>

@@ -1,7 +1,20 @@
 <section>
-  <%= @user.username %>  
+    <%= render partial: 'ideas/form', locals: { submit: "ADD NEW IDEA"} %>  
+</section>
 
-  <p class="">       
+<section>
+  <ul class="table-view">
+    <li class="table-view-cell table-view-divider">
+      <%= @user.ideas.count %> Ideas
+    </li>
+    <% if @user.ideas.any? %>
+     <%= render @ideas %>
+    <% end %>
+  </ul>
+</section>
+
+<section>
+  <p>       
     <% if signed_in? %>
       <%= link_to "Sign Out", signout_path, method: "delete" %>
     <% end %>

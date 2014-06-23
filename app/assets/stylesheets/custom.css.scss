@@ -83,3 +83,15 @@ nav li a {
     -webkit-box-shadow:  -10px 0px 9px 0px rgba(0, 0, 0, 0.4);
     box-shadow:  -10px 0px 9px 0px rgba(0, 0, 0, 0.4);
 }
+
+form {
+    margin-bottom: 10px;
+    textarea {
+        margin-bottom: 7px;
+        padding: 2px 3px;
+    }
+}
+
+.btn-cancel {
+    width: 100%
+}
