@@ -9,4 +9,8 @@ class MailPreview < MailView
     user.destroy
     mail
   end
+
+  def feedback
+    FeedbackMailer.feedback_email("example@example.com", "Lorum ipsum...")
+  end
 end

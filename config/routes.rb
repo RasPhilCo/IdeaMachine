@@ -10,6 +10,10 @@ IdeaMachine::Application.routes.draw do
   match '/signin', to: 'auths#create', via: 'post'
   match '/signout', to: 'auths#destroy', via: 'delete'
 
+  match '/feedback', to: "static_pages#feedback", via: 'get'
+  match '/send_feedback', to: "static_pages#send_feedback", via: 'post'
+  match '/about', to: "static_pages#about", via: 'get'
+
   if Rails.env.development?
     mount MailPreview => 'mail_view'
   end

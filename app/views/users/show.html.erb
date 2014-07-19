@@ -12,11 +12,3 @@
     <% end %>
   </ul>
 </section>
-
-<section>
-  <p>       
-    <% if signed_in? %>
-      <%= link_to "Sign Out", signout_path, method: "delete" %>
-    <% end %>
-  </p>
-</section>

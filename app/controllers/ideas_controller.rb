@@ -8,11 +8,10 @@ class IdeasController < ApplicationController
     if @idea.save
       redirect_to current_user, notice: 'Your idea was added!'
     else
-      # flash.now[:error] = 'Idea not saved'
-      # render action: 'show', controller: :users, id: current_user.id
+      flash.now[:error] = 'Idea not saved.'
       @user = current_user
       @ideas = []
-      render 'users/show'
+      render 'user/show'
     end
   end
 
@@ -23,7 +22,7 @@ class IdeasController < ApplicationController
     if @idea.update(idea_params)
       redirect_to current_user, notice: 'Your idea was updated!'
     else
-      # flash.now[:error] = 'Idea not saved'
+      flash.now[:error] = 'Idea not saved, try again.'
       render 'edit'
     end
   end

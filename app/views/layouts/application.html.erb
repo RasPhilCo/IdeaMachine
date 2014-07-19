@@ -4,6 +4,8 @@
   <title>IdeaMachine</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="http://www.ymc.ch/sandbox/hamburger/js/hamburger.js"></script>
   <%= csrf_meta_tags %>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
@@ -14,7 +16,9 @@
 <body>
   <div id="container">
     <%= render 'layouts/header' %>
-    <div id="content" class="">
+    <%= render 'layouts/hamburger' %>
+    <div id="contentLayer"></div>
+    <div id="content" class="content">
       <div class="indent-right">
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: "alert alert-#{key}") %>

@@ -1,0 +1,14 @@
+<nav class="mobileNav">
+  <ul>
+      <li><a href="/">My Ideas</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/feedback">Leave Feedback</a></li>
+      <li> 
+        <% if signed_in? %>
+          <%= link_to "Sign Out", signout_path, method: "delete" %>
+        <% else %>
+          <%= link_to "Sign in", signin_path %>
+        <% end %>
+      </li>
+  </ul>
+</nav>
