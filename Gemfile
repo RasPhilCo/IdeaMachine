@@ -35,6 +35,7 @@ gem 'mail_view', :git => 'https://github.com/basecamp/mail_view.git'
 
 gem 'rails_12factor', group: :production
 gem 'unicorn'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 group :development do
   gem "letter_opener"

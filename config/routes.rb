@@ -18,6 +18,9 @@ IdeaMachine::Application.routes.draw do
     mount MailPreview => 'mail_view'
   end
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/meerkat'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
