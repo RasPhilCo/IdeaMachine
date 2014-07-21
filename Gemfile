@@ -33,6 +33,8 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'sidekiq'
 gem 'mail_view', :git => 'https://github.com/basecamp/mail_view.git'
 
+gem 'rails_12factor', group: :production
+
 group :development do
   gem "letter_opener"
 end
