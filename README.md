@@ -4,6 +4,7 @@ Features:
 
 * Authentication & authorization via bcrypt and sessions.
 * Mailers for new user signup and password resets. 
+* [Twitter Ratchet](http://goratchet.com/) for mobile styling
 
 A few user stories:
 
