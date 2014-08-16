@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, except: [:new, :create]
+  before_action :signed_in_user, except: [:new, :create, :update_password]
   before_action :correct_user, only: [:show]
 
   def new
@@ -20,6 +20,17 @@ class UsersController < ApplicationController
       end
   end
 
+  def update_password
+
+    @user = User.find_by_password_reset_token(User.digest(params[:user][:password_reset_token]))
+    if @user.update(user_params)
+      @user.update_attribute(:password_reset_token, nil)
+      redirect_to signin_path, notice: "Password succesfully changed!"
+    else 
+      render 'auths/reset_password'
+    end
+  end
+
   def show
     @ideas = current_user.ideas
     @idea  = Idea.new
@@ -35,7 +46,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:email,
                                    :username,
                                    :password,
-                                   :password_confirmation
+                                   :password_confirmation,
+                                   :password_reset_token
                                   )
     end
 end

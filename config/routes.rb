@@ -13,6 +13,11 @@ IdeaMachine::Application.routes.draw do
   match '/feedback', to: "static_pages#feedback", via: 'get'
   match '/send_feedback', to: "static_pages#send_feedback", via: 'post'
   match '/about', to: "static_pages#about", via: 'get'
+  
+  match '/forgot_password', to: "auths#forgot_password", via: 'get'
+  match '/forgot_password', to: "auths#password_reset_token", via: 'post'
+  match '/reset_password', to: "auths#reset_password", via: 'get'
+  match '/reset_password', to: "users#update_password", via: 'post'
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'

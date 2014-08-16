@@ -1,5 +1,5 @@
 class FeedbackMailer < ActionMailer::Base
-  default to: "admin@example.com"
+  default to: "herokumailers@gmail.com"
 
   def feedback_email(email, body)
       @email = email
