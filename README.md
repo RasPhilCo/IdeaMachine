@@ -17,3 +17,4 @@ A few user stories:
 * As a user, I should be able to edit my ideas.
 * As a user, I should be able to submit feedback.
 * As a user, I should be able to reset my password.
+* As a user, I should be able to favorite ideas I really like.
