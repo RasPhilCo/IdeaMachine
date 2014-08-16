@@ -1,6 +1,15 @@
 <li class="table-view-cell">
   <div><%= idea.content %></div>
   <div class="pull-right">
+    <% if idea.favorite? %>
+      <%= link_to unfavorite_path(idea), method:'post' do %>
+        <span class="icon icon-star-filled"></span>
+      <% end %>    
+    <% else %>
+      <%= link_to favorite_path(idea), method: 'post' do %>
+        <span class="icon icon-star"></span>
+      <% end %>
+    <% end %>
     <%= link_to edit_idea_path(idea) do %>
       <span class="icon icon-edit" style="font-size:1.2em"></span>
     <% end %>

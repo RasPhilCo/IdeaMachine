@@ -19,6 +19,10 @@ IdeaMachine::Application.routes.draw do
   match '/reset_password', to: "auths#reset_password", via: 'get'
   match '/reset_password', to: "users#update_password", via: 'post'
 
+  post '/ideas/:id/favorite', to: "ideas#favorite", as: :favorite
+  post '/ideas/:id/unfavorite', to: "ideas#unfavorite", as: :unfavorite
+ 
+
   if Rails.env.development?
     mount MailPreview => 'mail_view'
   end

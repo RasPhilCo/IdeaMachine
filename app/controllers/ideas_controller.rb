@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy, :edit, :update]
-  before_action :set_current_user_idea,   only: [:destroy, :edit, :update]
+  before_action :set_current_user_idea,   only: [:destroy, :edit, :update, :favorite, :unfavorite]
 
   def create
     @idea = current_user.ideas.build(idea_params)
@@ -30,6 +30,16 @@ class IdeasController < ApplicationController
   def destroy
     @idea.destroy
     redirect_to current_user, notice: 'Idea deleted.' 
+  end
+
+  def favorite
+    @idea.favorite!
+    redirect_to @current_user
+  end
+
+  def unfavorite
+    @idea.unfavorite!
+    redirect_to @current_user
   end
 
   private
